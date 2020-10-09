@@ -35,7 +35,6 @@ SWEP.NoSights 				= true
 SWEP.AutoSpawnable 			= false
 
 SWEP.Primary.Automatic			= true
-secondary_text = "rainbow"
 
 SWEP.EquipMenuData = {
       type="Weapon",
@@ -74,13 +73,14 @@ function SWEP:SecondaryAttack()
         viewmod = self.Owner:GetViewModel(0)
 
         if self.Weapon:GetSkin() < 2 then
-        self.Weapon:SetSkin(self.Weapon:GetSkin()+1)
-        else self.Weapon:SetSkin(0) end
 
-        if viewmod:GetSkin() < 2 then
+                self.Weapon:SetSkin(self.Weapon:GetSkin()+1)
                 viewmod:SetSkin(viewmod:GetSkin()+1)
-        else viewmod:SetSkin(0) end
-
+        else 
+                self.Weapon:SetSkin(0)
+                viewmod:SetSkin(0)
+        end
+        
         if self.Weapon:GetSkin() == 0 then secondary_text = "rainbow"
         elseif self.Weapon:GetSkin() == 1 then secondary_text = "black"
         else secondary_text = "pikachu" end
